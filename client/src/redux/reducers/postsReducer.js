@@ -4,7 +4,7 @@ const SET_ALL_POSTS = 'SET-ALL-POSTS';
 
 let initialState = {
   isAuth: false,
-  allPosts: '',
+  allPosts: [],
 };
 
 let postsReducer = (state = initialState, action) => {
@@ -33,5 +33,15 @@ export const getAllPosts = () => async (dispatch) => {
       console.log(error.message);
    }
  };
+
+export const addNewPost = (name, title) => async (dispatch) => {
+   try {
+      await ApiService.addNewGamesPost(name, title);
+      getAllPosts();
+   }
+   catch (error) {
+      console.log(error.message);
+   }
+} 
 
 export default postsReducer;

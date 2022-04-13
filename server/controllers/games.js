@@ -2,7 +2,7 @@ import GamesPost from "../models/gamesPost.js";
 
 export const getGames = async (req, res) => {
    try {
-      const gamesPost = await GamesPost.find({});
+      const gamesPost = await GamesPost.find();
 
       res.status(200).json(gamesPost);
    }
