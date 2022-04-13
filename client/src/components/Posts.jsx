@@ -6,8 +6,6 @@ const Posts = () => {
    const dispatch = useDispatch()
    const allPosts = useSelector(state => state.posts.allPosts)
 
-   console.log(allPosts)
-
    useEffect(() => {
       dispatch(getAllPosts())
    }, [dispatch])

@@ -37,7 +37,8 @@ export const getAllPosts = () => async (dispatch) => {
 export const addNewPost = (name, title) => async (dispatch) => {
    try {
       await ApiService.addNewGamesPost(name, title);
-      getAllPosts();
+      let data = await ApiService.fetchGamesPosts();
+      dispatch(setAllPosts(data));
    }
    catch (error) {
       console.log(error.message);
