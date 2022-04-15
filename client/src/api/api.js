@@ -6,9 +6,9 @@ const instance = axios.create({
 
 export const ApiService = {
    fetchGamesPosts() {
-      return instance.get('games').then((response) => response.data);
+      return instance.get('api/posts').then((response) => response.data);
    },
    addNewGamesPost(name, title) {
-      return instance.post('games', {name, title}).then((response) => response.data);
+      return instance.post('api/add_post', {name, title}).then((response) => response.data);
    }
 }
