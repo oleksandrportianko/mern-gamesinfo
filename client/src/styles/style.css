@@ -1,0 +1,131 @@
+body {
+   width: 100%;
+   height: 100%;
+   margin: 0;
+}
+
+textarea, input { outline: none; }
+
+a, a:hover, a:focus, a:active {
+   text-decoration: none;
+   color: inherit;
+}
+
+.header {
+   width: 100%;
+   height: 50px;
+   background-color: #f1f1f1;
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 1;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   color: #000;
+}
+
+.main-content {
+   width: 100%;
+   margin-top: 50px;
+   padding-left: 10px;
+}
+
+.input-form {
+   width: 200px;
+   height: 40px;
+   padding-left: 10px;
+   margin-top: 10px;
+}
+
+.button-send-form {
+   width: 100px;
+   height: 40px;
+   margin-top: 10px;
+   background-color: #f1f1f1;
+   border: none;
+   color: #000;
+   font-size: 16px;
+   cursor: pointer;
+}
+
+.svg-login {
+   width: 30px;
+   height: 30px;
+   margin-right: 10px;
+   cursor: pointer;
+}
+
+.link-styles {
+   color: #000;
+   text-decoration: none;
+}
+
+.login-wrapper {
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.left-arrow-svg {
+   width: 15px;
+   height: 15px;
+}
+
+.back-to-main-link {
+   margin-left: 10px;
+   font-size: 1rem;
+   cursor: pointer;
+}
+
+.back-to-main-link:hover {
+   text-decoration: underline;
+   color: blue;
+}
+
+.login-form {
+   display: flex;
+   flex-direction: column;
+   width: 300px;
+}
+
+.reg-form {
+   display: flex;
+   flex-direction: column;
+   width: 300px;
+}
+
+.form-field {
+   border: none;
+   border-bottom: 1px solid #000;
+}
+
+.form-error {
+   color: red;
+   font-size: 12px;
+   margin-bottom: 15px;
+}
+
+.button-form {
+   background-color: #000;
+   color: white;
+   margin-top: 10px;
+   border: none;
+}
+
+.selected-login-reg {
+   display: flex;
+   flex-direction: row;
+}
+
+.navigation-log-reg {
+   background-color: #f1f1f1;
+   width: 100%;
+}
+
+.selected-nav {
+   background-color: brown;
+}
