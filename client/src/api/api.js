@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const instance = axios.create({
   baseURL: 'http://localhost:5000/',
+  withCredentials: true,
 });
 
 export const ApiService = {
@@ -9,15 +10,15 @@ export const ApiService = {
       return instance.get('api/posts').then((response) => response.data);
    },
    addNewGamesPost(name, title) {
-      return instance.post('api/add_post', {name, title}).then((response) => response.data);
+      return instance.post('api/add_post', {name, title}, {withCredentials: true}).then((response) => response.data);
    },
    loginUser(email, password) {
-      return instance.post('api/login', {email, password}).then((response) => response.data);
+      return instance.post('api/login', {email, password}, {withCredentials: true}).then((response) => response.data);
    },
    registerUser(nickname, email, password) {
       return instance.post('api/registration', {nickname, email, password}).then((response) => response.data);
    },
-   getUserData() {
+   fetchUserData() {
       return instance.get('api/user_data').then((response) => response.data);
    }
 }

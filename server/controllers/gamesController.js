@@ -1,6 +1,6 @@
-import GamesPost from "../models/Post.js";
+import GamesPost from "../models/postModel.js";
 
-export const getGames = async (req, res) => {
+export const getPosts = async (req, res) => {
    try {
       const gamesPost = await GamesPost.find();
 
@@ -11,7 +11,7 @@ export const getGames = async (req, res) => {
    }
 }
 
-export const createGames = async (req, res) => {
+export const createPost = async (req, res) => {
    const gamePost = req.body;
 
    const newGamePost = new GamesPost(gamePost);
