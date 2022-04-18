@@ -3,7 +3,6 @@ import { ApiService } from '../../api/api';
 const SET_ALL_POSTS = 'SET-ALL-POSTS';
 
 let initialState = {
-  isAuth: false,
   allPosts: [],
 };
 

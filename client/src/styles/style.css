@@ -129,6 +129,8 @@ a, a:hover, a:focus, a:active {
    color: white;
    margin-top: 10px;
    border: none;
+   padding: 10px;
+   width: 150px;
 }
 
 .selected-login-reg {
@@ -137,10 +139,16 @@ a, a:hover, a:focus, a:active {
 }
 
 .navigation-log-reg {
-   background-color: #f1f1f1;
+   background-color: #f87a7a;
    width: 100%;
+   padding: 5px 10px;
+}
+
+.navigation-log-reg:hover {
+   color: white;
+   background-color: rgb(160, 97, 97);
 }
 
 .selected-nav {
-   background-color: brown;
+   background-color: rgb(189, 21, 21);
 }

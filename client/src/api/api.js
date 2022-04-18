@@ -10,5 +10,14 @@ export const ApiService = {
    },
    addNewGamesPost(name, title) {
       return instance.post('api/add_post', {name, title}).then((response) => response.data);
+   },
+   loginUser(email, password) {
+      return instance.post('api/login', {email, password}).then((response) => response.data);
+   },
+   registerUser(nickname, email, password) {
+      return instance.post('api/registration', {nickname, email, password}).then((response) => response.data);
+   },
+   getUserData() {
+      return instance.get('api/user_data').then((response) => response.data);
    }
 }

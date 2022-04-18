@@ -2,8 +2,11 @@ import React from 'react'
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import { useDispatch } from 'react-redux';
+import { registrationUserGetData } from '../redux/reducers/authReducer';
 
 const Registration = () => {
+   const dispatch = useDispatch();
    const schema = yup.object({
       nickname: yup.string()
          .min(6, 'Too Short!')
@@ -23,10 +26,12 @@ const Registration = () => {
       mode: 'onBlur'
    });
 
-   const onSubmit = data => console.log(data);
+   const onSubmit = data => {
+      dispatch(registrationUserGetData(data.nickname, data.email, data.password));
+   };
 
    return (
-      <form onSubmit={handleSubmit(onSubmit)} className="reg-form" >
+      <form onSubmit={handleSubmit(onSubmit)} className="reg-form mt-1" >
          <input type='text' placeholder='Your nickname' {...register("nickname")} className="form-field" />
          <p className='form-error'>{errors.nickname?.message}</p>
          <input type='text' placeholder='Email adress' {...register("email")} className="form-field" />
