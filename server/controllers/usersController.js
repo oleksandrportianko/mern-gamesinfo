@@ -14,9 +14,8 @@ export const loginUser = async (req, res) => {
 
     if (isPasswordValid) {
       const token = generateAccessToken(user.email);
-      console.log(token)
+      res.cookie('access_token', token , { httpOnly:true, sameSite:true, maxAge: 36000000 });
       res.send({ token });
-      res.cookie('access_token', token , { httpOnly:true, sameSite:true, maxAge: 36000 });
     } else {
       return res.status(401).json({ message: 'Invalid password' });
     }
@@ -27,7 +26,6 @@ export const loginUser = async (req, res) => {
 
 export const createUser = async (req, res) => {
   try {
-    console.log(req.body);
     try {
       const newPassword = await bcrypt.hash(req.body.password, 10);
       await UsersModel.create({
@@ -45,11 +43,11 @@ export const createUser = async (req, res) => {
 };
 
 export const getUserData = async (req, res) => {
-   console.log('in function');
    try {
       const accessToken = req.cookies.access_token;
-      console.log(accessToken);
-      return res.status(200).json({message: 'Get user'});
+      const decodedJWT = jwt.decode(accessToken, process.env.JWT_SECRET);
+      const user = await UsersModel.findOne({ email: decodedJWT.email});
+      return res.status(200).json(user);
    } catch(error) {
       res.status(404).json({ message: error.message });
    }
