@@ -21,7 +21,7 @@ const Posts = () => {
       {allPosts.map(post => (
          <div key={post._id}>{post.name}/{post.title}</div>
       ))}
-      <button onClick={() => getUserInformation()} className='button-form'>Get data</button>
+      <button onClick={() => getUserInformation()} className='button-form'>Get user data</button>
    </div>
   )
 }

@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 import Login from '../components/Login'
 import Registration from '../components/Registration';
+import  { useNavigate } from 'react-router-dom'
 
 const LoginPage = () => {
    const [selectedPage, setSelectedPage] = React.useState('login');
+   const isAuth = useSelector((state) => state.auth.isAuth);
+   let navigate = useNavigate();
 
+   useEffect(() => {
+      if (isAuth) {
+         navigate('/profile')
+      }
+   }, [isAuth, navigate])
    return (
       <div className='login-wrapper'>
          <Link to='/' className='d-flex align-items-center back-to-main-link'>

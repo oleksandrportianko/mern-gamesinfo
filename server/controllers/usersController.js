@@ -45,8 +45,11 @@ export const createUser = async (req, res) => {
 export const getUserData = async (req, res) => {
    try {
       const accessToken = req.cookies.access_token;
+      if (!accessToken) {
+         return res.status(401).json({ message: 'User is not loggined' });
+      }
       const decodedJWT = jwt.decode(accessToken, process.env.JWT_SECRET);
-      const user = await UsersModel.findOne({ email: decodedJWT.email});
+      const user = await UsersModel.findOne({ email: decodedJWT.email}).select('-password');
       return res.status(200).json(user);
    } catch(error) {
       res.status(404).json({ message: error.message });

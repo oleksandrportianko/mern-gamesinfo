@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/style.css';
 import LoginPage from './pages/LoginPage.jsx'
+import ProfilePage from './pages/ProfilePage.jsx'
 import Posts from './components/Posts';
 import { Route, Routes } from "react-router-dom";
 import Header from './components/Header';
@@ -14,6 +15,7 @@ function App() {
             <Routes>
                <Route path="/" element={<Posts />}></Route>
                <Route path="/login" element={<LoginPage />}></Route>
+               <Route path="/profile" element={<ProfilePage />}></Route>
             </Routes>
          </div>
       </div>
