@@ -8,7 +8,6 @@ const ProfilePage = () => {
    let navigate = useNavigate();
 
    useEffect(() => {
-      console.log('in useEffect')
       if (!isAuth) {
          navigate('/login')
       }

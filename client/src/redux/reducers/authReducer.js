@@ -28,7 +28,6 @@ export const loginUserGetData = (email, password) => async (dispatch) => {
    try {
       await ApiService.loginUser(email, password);
       const data = await ApiService.fetchUserData();
-      console.log(data)
       dispatch(setLoginUserData(data));
    }
    catch (error) {
@@ -41,7 +40,6 @@ export const registrationUserGetData = (nickname, email, password) => async (dis
       await ApiService.registerUser(nickname, email, password);
       await ApiService.loginUser(email, password);
       const data = await ApiService.fetchUserData();
-      console.log(data)
       dispatch(setLoginUserData(data));
    }
    catch (error) {
@@ -52,7 +50,6 @@ export const registrationUserGetData = (nickname, email, password) => async (dis
 export const getUserData = () => async (dispatch) => {
    try {
       const data = await ApiService.fetchUserData();
-      console.log(data)
       dispatch(setLoginUserData(data));
    }
    catch (error) {
