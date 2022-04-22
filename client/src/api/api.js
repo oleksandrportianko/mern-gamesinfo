@@ -9,8 +9,8 @@ export const ApiService = {
    fetchGamesPosts() {
       return instance.get('api/posts').then((response) => response.data);
    },
-   addNewGamesPost(name, title) {
-      return instance.post('api/add_post', {name, title}, {withCredentials: true}).then((response) => response.data);
+   addNewGamesPost(title, description) {
+      return instance.post('api/add_post', {title, description}, {withCredentials: true}).then((response) => response.data);
    },
    loginUser(email, password) {
       return instance.post('api/login', {email, password}, {withCredentials: true}).then((response) => response.data);

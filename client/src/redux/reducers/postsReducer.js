@@ -33,9 +33,9 @@ export const getAllPosts = () => async (dispatch) => {
    }
  };
 
-export const addNewPost = (name, title) => async (dispatch) => {
+export const addNewPost = (title, description) => async (dispatch) => {
    try {
-      await ApiService.addNewGamesPost(name, title);
+      await ApiService.addNewGamesPost(title, description);
       let data = await ApiService.fetchGamesPosts();
       dispatch(setAllPosts(data));
    }
