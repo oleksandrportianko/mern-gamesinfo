@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 const usersSchema = mongoose.Schema({
+   id: {
+      type: String,
+      required: true
+   },
    nickname: {
       type: String,
       required: true,

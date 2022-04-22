@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import mongoose from "mongoose";
-import gamesRoute from "./routes/gamesRoutes.js";
+import gamesRoute from "./routes/postsRoutes.js";
 import usersRoute from "./routes/usersRoutes.js";
 import dotenv from 'dotenv'
 import cookieParser from "cookie-parser";

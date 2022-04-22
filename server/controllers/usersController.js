@@ -1,6 +1,7 @@
 import UsersModel from '../models/userModel.js';
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import { v4 as uuidv4 } from 'uuid';
 
 export const loginUser = async (req, res) => {
   try {
@@ -29,6 +30,7 @@ export const createUser = async (req, res) => {
     try {
       const newPassword = await bcrypt.hash(req.body.password, 10);
       await UsersModel.create({
+        id: uuidv4(),
         nickname: req.body.nickname,
         email: req.body.email,
         password: newPassword,
